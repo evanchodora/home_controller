@@ -1,6 +1,7 @@
 ## Home Controller Web Interface
 
 Web interface designed to couple with several home automation/smart home systems at my house.
+Single `docker-compose.yml` brings up all the services the web interface server depends on for API requests
 
 ### Cast-Web-API
 Forked from https://github.com/vervallsweg/cast-web-api. Container deisgned to run an API to determine what's playing and control various Google Cast devices in the house.
