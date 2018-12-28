@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+
+  webclient:
+    build: 
+      dockerfile: ./web_client/Dockerfile
+      context: .
+    image: web_client:latest
+    volumes:
+    - ./web_client/code:/code
+    restart: always
+    depends_on:
+      - garagecontroller
+      - grafanarender
+      - dishwasher
+      - weatherservice
+      - tuyacontroller
+      - castwebapi
+    ports:
+    - 5006:5006
+    env_file:
+      - ../env_files/home_controller.env
+
+  garagecontroller:
+    build:
+      dockerfile: ./garage_controller/Dockerfile
+      context: .
+    image: garage_controller:latest
+    volumes:
+    - ./garage_controller/code:/code
+    ports:
+    - 5000:5000
+    env_file:
+      - ../env_files/myq.env
+    
+  grafanarender:
+    build: 
+      dockerfile: ./grafana_render/Dockerfile
+      context: .
+    image: grafana_render:latest
+    volumes:
+    - ./grafana_render/code:/code
+    ports:
+    - 5004:5004
+    env_file:
+      - ../env_files/grafana_render.env
+    
+  dishwasher:
+    build: 
+      dockerfile: ./dishwasher/Dockerfile
+      context: .
+    image: dishwasher:latest
+    volumes:
+    - ./dishwasher/code:/code
+    ports:
+    - 5002:5002
+    
+  weatherservice:
+    build: 
+      dockerfile: ./weather_service/Dockerfile
+      context: .
+    image: weather_service:latest
+    volumes:
+    - ./weather_service/code:/code
+    ports:
+    - 5003:5003
+    env_file:
+      - ../env_files/weather.env
+    
+  tuyacontroller:
+    build: 
+      dockerfile: ./tuya_controller/Dockerfile
+      context: .
+    image: tuya_controller:latest
+    volumes:
+    - ./tuya_controller/code:/code
+    ports:
+    - 5001:5001
+    
+  castwebapi:
+    build: 
+      context: ./cast-web-api
+    image: cast-web-api:latest
+    network_mode: "host"
+    ports:
+    - 5005:5005

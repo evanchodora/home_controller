@@ -1,0 +1,15 @@
+#!/bin/ash
+
+#KEY = eyJrIjoiQ05RbmNwVXBFTEU5NWF3MUFQaWFpZjhOZ0RKRFdoTzciLCJuIjoiVmlld2VyIiwiaWQiOjF9
+
+# Save render of the hourly electricity panel
+curl -H "Authorization: Bearer eyJrIjoiQ05RbmNwVXBFTEU5NWF3MUFQaWFpZjhOZ0RKRFdoTzciLCJuIjoiVmlld2VyIiwiaWQiOjF9" "http://alpine.chodora.org:3000/render/d-solo/OvDoE_-iz/utilities-dashboard?refresh=15m&panelId=5&orgId=1&width=1000&height=300&tz=America%2FNew_York"  > /code/power_new.png
+cp /code/power_new.png /code/power.png
+
+# Save render of the 15m gas panel
+curl -H "Authorization: Bearer eyJrIjoiQ05RbmNwVXBFTEU5NWF3MUFQaWFpZjhOZ0RKRFdoTzciLCJuIjoiVmlld2VyIiwiaWQiOjF9" "http://alpine.chodora.org:3000/render/d-solo/OvDoE_-iz/utilities-dashboard?refresh=15m&panelId=7&orgId=1&width=1000&height=300&tz=America%2FNew_York" > /code/gas_new.png
+cp /code/gas_new.png /code/gas.png
+
+# Save render of the 15m water panel
+curl -H "Authorization: Bearer eyJrIjoiQ05RbmNwVXBFTEU5NWF3MUFQaWFpZjhOZ0RKRFdoTzciLCJuIjoiVmlld2VyIiwiaWQiOjF9" "http://alpine.chodora.org:3000/render/d-solo/OvDoE_-iz/utilities-dashboard?refresh=15m&panelId=8&orgId=1&width=1000&height=300&tz=America%2FNew_York" > /code/water_new.png
+cp /code/water_new.png /code/water.png

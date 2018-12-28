@@ -1,0 +1,37 @@
+[
+    {
+        "device_id": "38486716dc4f22d54107",
+        "name": "Vanity",
+        "device_type": "outlet",
+        "local_key": "80495f72f99d0631",
+        "ip": "192.168.1.21"
+    },
+    {
+        "device_id": "38486716dc4f22e07ab6",
+        "name": "Fireplace",
+        "device_type": "outlet",
+        "local_key": "d37052509a8d8ad7",
+        "ip": "192.168.1.22"
+    },
+    {
+        "device_id": "05528600dc4f22e9e9f6",
+        "name": "Small Tree",
+        "device_type": "outlet",
+        "local_key": "d2d7befabfbace05",
+        "ip": "192.168.1.23"
+    },
+    {
+        "device_id": "38486716dc4f22e08a64",
+        "name": "Tree",
+        "device_type": "outlet",
+        "local_key": "93459d379180a6f3",
+        "ip": "192.168.1.24"
+    },
+    {
+        "device_id": "0021386384f3eb5f99bc",
+        "name": "Lamp",
+        "device_type": "bulb",
+        "local_key": "421c3dc3b83f5d9c",
+        "ip": "192.168.1.25"
+    }
+]
