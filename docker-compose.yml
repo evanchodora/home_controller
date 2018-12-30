@@ -29,6 +29,7 @@ services:
     image: garage_controller:latest
     volumes:
     - ./garage_controller/code:/code
+    restart: always
     ports:
     - 5000:5000
     env_file:
@@ -41,10 +42,11 @@ services:
     image: grafana_render:latest
     volumes:
     - ./grafana_render/code:/code
+    restart: always 
     ports:
     - 5004:5004
     env_file:
-      - ../env_files/grafana_render.env
+     - ../env_files/grafana_render.env
     
   dishwasher:
     build: 
@@ -53,6 +55,7 @@ services:
     image: dishwasher:latest
     volumes:
     - ./dishwasher/code:/code
+    restart: always
     ports:
     - 5002:5002
     
@@ -63,6 +66,7 @@ services:
     image: weather_service:latest
     volumes:
     - ./weather_service/code:/code
+    restart: always
     ports:
     - 5003:5003
     env_file:
@@ -75,6 +79,7 @@ services:
     image: tuya_controller:latest
     volumes:
     - ./tuya_controller/code:/code
+    restart: always
     ports:
     - 5001:5001
     
@@ -83,5 +88,6 @@ services:
       context: ./cast-web-api
     image: cast-web-api:latest
     network_mode: "host"
+    restart: always
     ports:
     - 5005:5005
